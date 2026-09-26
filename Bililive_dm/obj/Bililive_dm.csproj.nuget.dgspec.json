@@ -1,0 +1,147 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\bililive_dm-master\\Bililive_dm\\Bililive_dm.csproj": {}
+  },
+  "projects": {
+    "D:\\bililive_dm-master\\BilibiliDM_PluginFramework\\BilibiliDM_PluginFramework.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\bililive_dm-master\\BilibiliDM_PluginFramework\\BilibiliDM_PluginFramework.csproj",
+        "projectName": "BilibiliDM_PluginFramework",
+        "projectPath": "D:\\bililive_dm-master\\BilibiliDM_PluginFramework\\BilibiliDM_PluginFramework.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "D:\\bililive_dm-master\\BilibiliDM_PluginFramework\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net461"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net461": {
+            "projectReferences": {}
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net461": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-arm64": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\bililive_dm-master\\BiliDMLib\\BiliDMLib.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\bililive_dm-master\\BiliDMLib\\BiliDMLib.csproj",
+        "projectName": "BiliDMLib",
+        "projectPath": "D:\\bililive_dm-master\\BiliDMLib\\BiliDMLib.csproj",
+        "UsingMicrosoftNETSdk": false,
+        "frameworks": {
+          "net461": {
+            "projectReferences": {
+              "D:\\bililive_dm-master\\BilibiliDM_PluginFramework\\BilibiliDM_PluginFramework.csproj": {
+                "projectPath": "D:\\bililive_dm-master\\BilibiliDM_PluginFramework\\BilibiliDM_PluginFramework.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "D:\\bililive_dm-master\\Bililive_dm\\Bililive_dm.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\bililive_dm-master\\Bililive_dm\\Bililive_dm.csproj",
+        "projectName": "Bililive_dm",
+        "projectPath": "D:\\bililive_dm-master\\Bililive_dm\\Bililive_dm.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "D:\\bililive_dm-master\\Bililive_dm\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net461"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net461": {
+            "projectReferences": {
+              "D:\\bililive_dm-master\\BilibiliDM_PluginFramework\\BilibiliDM_PluginFramework.csproj": {
+                "projectPath": "D:\\bililive_dm-master\\BilibiliDM_PluginFramework\\BilibiliDM_PluginFramework.csproj"
+              },
+              "D:\\bililive_dm-master\\BiliDMLib\\BiliDMLib.csproj": {
+                "projectPath": "D:\\bililive_dm-master\\BiliDMLib\\BiliDMLib.csproj"
+              }
+            }
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net461": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-arm64": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
