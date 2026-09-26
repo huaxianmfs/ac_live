@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Bpdz8EmUn5A=",
+  "success": true,
+  "projectFilePath": "D:\\bililive_dm-master\\BilibiliDM_PluginFramework\\BilibiliDM_PluginFramework.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

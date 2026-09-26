@@ -1,0 +1,9 @@
+D:\bililive_dm-master\BilibiliDM_PluginFramework\bin\Release\BilibiliDM_PluginFramework.XML
+D:\bililive_dm-master\BilibiliDM_PluginFramework\bin\Release\BilibiliDM_PluginFramework.dll
+D:\bililive_dm-master\BilibiliDM_PluginFramework\bin\Release\BilibiliDM_PluginFramework.pdb
+D:\bililive_dm-master\BilibiliDM_PluginFramework\bin\Release\Newtonsoft.Json.dll
+D:\bililive_dm-master\BilibiliDM_PluginFramework\obj\Release\BilibiliDM_PluginFramework.csproj.AssemblyReference.cache
+D:\bililive_dm-master\BilibiliDM_PluginFramework\obj\Release\BilibiliDM_PluginFramework.csproj.CoreCompileInputs.cache
+D:\bililive_dm-master\BilibiliDM_PluginFramework\obj\Release\Bilibili.88F99B45.Up2Date
+D:\bililive_dm-master\BilibiliDM_PluginFramework\obj\Release\BilibiliDM_PluginFramework.dll
+D:\bililive_dm-master\BilibiliDM_PluginFramework\obj\Release\BilibiliDM_PluginFramework.pdb
