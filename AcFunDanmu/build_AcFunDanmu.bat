@@ -3,11 +3,11 @@ chcp 65001 >nul
 setlocal enabledelayedexpansion
 
 echo ============================================
-echo  编译 AcFunDanmu 项目（.NET Standard 2.0）
+echo  编译 AcFunDanmu 项目（.NET Framework 4.6.1）
 echo ============================================
 echo.
 
-set "PROJ=D:\bililive_dm-master\AcFunDanmu\AcFunDanmu.csproj"
+set "PROJ=%~dp0AcFunDanmu.csproj"
 
 if not exist "%PROJ%" (
     echo [错误] 找不到项目文件: %PROJ%
@@ -15,7 +15,7 @@ if not exist "%PROJ%" (
     exit /b 1
 )
 
-cd /d "D:\bililive_dm-master\AcFunDanmu"
+cd /d "%~dp0"
 
 where dotnet >nul 2>&1
 if %errorlevel% equ 0 (
@@ -66,7 +66,7 @@ echo ============================================
 echo  编译成功！
 echo ============================================
 echo.
-echo 输出文件在: D:\bililive_dm-master\AcFunDanmu\bin\Debug\
+echo 输出文件在: %~dp0bin\Debug\
 pause
 exit /b 0
 
