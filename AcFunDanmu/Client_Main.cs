@@ -438,19 +438,17 @@ namespace AcFunDanmu
         public void Stop(string? reason = null)
         {
             Logger.LogInformation("Stopping client, reason: {Reason}", reason);
+            var ws = CurrentWs;
             try
             {
-                var ws = CurrentWs;
                 if (ws != null && ws.State == WebSocketState.Open)
                 {
+                    // 尽力发送优雅退出消息，但不等待
                     try { UserExitRequest(null); } catch { }
                     try { UnRegisterRequest(null); } catch { }
-                    try
-                    {
-                        ws.CloseAsync(WebSocketCloseStatus.NormalClosure, "stop", CancellationToken.None)
-                            .Wait(2000);
-                    }
-                    catch { }
+
+                    // 不等待关闭握手，直接强制中止，避免 UI 卡顿
+                    try { ws.Abort(); } catch { }
                     try { ws.Dispose(); } catch { }
                 }
             }
@@ -462,10 +460,7 @@ namespace AcFunDanmu
             {
                 CurrentWs = null;
                 _ws = null;
-                GC.Collect();
-
                 IsRunning = false;
-
                 _enterRoomAttach = null;
             }
         }
