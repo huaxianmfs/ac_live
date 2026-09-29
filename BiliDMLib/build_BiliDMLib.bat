@@ -7,6 +7,8 @@ echo  编译 BiliDMLib 项目（.NET Framework 4.6.1）
 echo ============================================
 echo.
 
+set "ROOT=%~dp0"
+
 set "VSWHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
 if not exist "%VSWHERE%" (
     echo [错误] 未找到 Visual Studio Installer
@@ -26,7 +28,7 @@ if not defined MSBUILD (
 echo [信息] 使用 MSBuild: !MSBUILD!
 echo.
 
-cd /d "D:\bililive_dm-master\BiliDMLib"
+cd /d "%ROOT%BiliDMLib"
 
 echo [1/2] 还原 NuGet 包...
 "!MSBUILD!" BiliDMLib.csproj /t:Restore /v:minimal /nologo
@@ -42,7 +44,7 @@ echo ============================================
 echo  编译成功！
 echo ============================================
 echo.
-echo 输出文件在: D:\bililive_dm-master\BiliDMLib\bin\Debug\
+echo 输出文件在: %ROOT%BiliDMLib\bin\Debug\
 pause
 exit /b 0
 
