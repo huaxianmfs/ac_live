@@ -70,6 +70,8 @@ namespace Bililive_dm
         private bool _net461;
         public MainOverlay Overlay;
 
+        private static readonly Dictionary<Type, MethodInfo> _blockMethodCache = new Dictionary<Type, MethodInfo>();
+
         [DllImport("ntdll.dll", EntryPoint = "wine_get_version", CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr wine_get_version();
         public MainWindow()
@@ -636,14 +638,43 @@ namespace Bililive_dm
             SendSSP(string.Format(Properties.Resources.MainWindow_b_ReceivedRoomCount_, e.UserCount));
         }
 
+        private static MethodInfo GetShouldBlockMethod(Type type)
+        {
+            if (_blockMethodCache.TryGetValue(type, out var cached)) return cached;
+            var method = type.GetMethod("ShouldBlockDanmaku", new[] { typeof(DanmakuModel) });
+            _blockMethodCache[type] = method;   // null 也要缓存，避免重复反射
+            return method;
+        }
+
         private void b_ReceivedDanmaku(object sender, ReceivedDanmakuArgs e)
         {
+            // ========== 插件硬拦截（在入队和通知其他插件之前） ==========
+            foreach (var plugin in App.Plugins)
+            {
+                if (plugin == null || !plugin.Status) continue;
+                var method = GetShouldBlockMethod(plugin.GetType());
+                if (method == null) continue;
+                try
+                {
+                    var result = method.Invoke(plugin, new object[] { e.Danmaku });
+                    if (result is bool blocked && blocked)
+                    {
+                        Logging($"[{plugin.PluginName}] 拦截弹幕: {e.Danmaku.UserName}: {e.Danmaku.CommentText}");
+                        return;   // 不入队、不显示、不通知其他插件
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Utils.PluginExceptionHandler(ex, plugin);
+                }
+            }
+            // ========== 拦截结束 ==========
+
             if (e.Danmaku.MsgType == MsgTypeEnum.Comment)
                 lock (_static)
                 {
                     _static.DanmakuCountRaw += 1;
                 }
-
 
             lock (_danmakuQueue)
             {
