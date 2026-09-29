@@ -53,15 +53,17 @@ namespace BiliDMLib
 
         public void Disconnect()
         {
-            try
-            {
-                _client?.Stop("User disconnected");
-            }
-            catch
-            {
-            }
+            bool wasConnected = _connected;
+            _connected = false;   // 先置 false，让 OnClientEnd 直接跳过，避免重复触发
+            try { _client?.Stop("User disconnected"); }
+            catch { }
             _client = null;
-            _connected = false;
+
+            if (wasConnected)
+            {
+                // 手动断开，通知主程序（Error=null 表示正常断开，主程序不会触发自动重连）
+                Disconnected?.Invoke(this, new DisconnectEvtArgs { Error = null });
+            }
         }
 
         private void OnClientEnd()
